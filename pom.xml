@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>au.gov.ga.geodesy</groupId>
+    <artifactId>egeodesy</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>eGeodesy Project</name>
+    <url>https://github.com/GeoscienceAustralia/eGeodesy</url>
+    <description>eGeodesy</description>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/GeoscienceAustralia/eGeodesy/issues</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:git:git@github.com:GeoscienceAustralia/eGeodesy.git</connection>
+        <developerConnection>scm:git:git@github.com:GeoscienceAustralia/eGeodesy.git</developerConnection>
+        <url>https://github.com/GeoscienceAustralia/eGeodesy/issues</url>
+    </scm>
+    <modules>
+        <module>../igssitelog-java-bindings</module>
+        <module>../ogc-schemas/geodesyml/0.3</module>
+        <module>../geodesyml-java-bindings</module>
+        <module>../geodesy-domain-model</module>
+        <module>../geodesy-domain-rest</module>
+    </modules>
+    <build>
+        <defaultGoal>install</defaultGoal>
+    </build>
+</project>

@@ -9,13 +9,19 @@ declare -a projects=(
     "geodesy-domain-rest"
 );
 
-cmd="git pull --ff-only && git submodule update --init --recursive --remote"
+# fetch and fast-forward the checkouted out branch and submodules
+function fast-forward {
+    echo "Fast-forward: `pwd`"
+    git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed 's!/! !')
+    git merge --ff-only FETCH_HEAD
+    # TODO: Submodule update brings down all branches, we want just the tracked branch.
+    # Perhaps a separate script to do the initial cloning is the way to go.
+    git submodule update --init --recursive --remote
+}
 
-echo ${cmd}
-eval "${cmd}"
+fast-forward
 
 for p in ${projects[@]}
 do
-    echo $p: ${cmd}
-    (cd ../${p}; eval ${cmd})
+    (cd ../${p}; fast-forward)
 done

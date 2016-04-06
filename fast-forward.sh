@@ -9,14 +9,13 @@ declare -a projects=(
     "geodesy-domain-rest"
 );
 
-# TODO: also update submodules
-cmd="git pull --ff-only"
+cmd="git pull --ff-only && git submodule update --init --recursive --remote"
 
 echo ${cmd}
-${cmd}
+eval "${cmd}"
 
 for p in ${projects[@]}
 do
     echo $p: ${cmd}
-    (cd ../${p}; ${cmd})
+    (cd ../${p}; eval ${cmd})
 done

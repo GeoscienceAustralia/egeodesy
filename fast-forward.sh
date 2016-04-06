@@ -7,6 +7,7 @@ declare -a projects=(
     "igssitelog-java-bindings"
     "geodesy-domain-model"
     "geodesy-domain-rest"
+    "xml-schemer"
 );
 
 # fetch and fast-forward the checkouted out branch and submodules

@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a projects=(
-    "GeodesyML"
-    "ogc-schemas"
-    "geodesyml-java-bindings"
-    "igssitelog-java-bindings"
-    "geodesy-domain-model"
-    "geodesy-domain-rest"
-    "xml-schemer"
-);
+. ./modules.sh
 
 # fetch and fast-forward the checkouted out branch and submodules
 function fast-forward {
@@ -22,7 +14,7 @@ function fast-forward {
 
 fast-forward
 
-for p in ${projects[@]}
+for m in ${modules[@]}
 do
-    (cd ../${p}; fast-forward)
+    (cd ../${m}; fast-forward)
 done

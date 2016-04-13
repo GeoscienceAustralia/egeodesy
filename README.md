@@ -4,7 +4,7 @@
 
 GitHub project `eGeodesy` groups together several related projects, which
 define GeodesyML and facilite Geoscience Australia and its collaborating
-partners in adopting GeodesyML is a common domain language.
+partners in adopting GeodesyML as a common domain language.
 
 The following dependency diagram and the brief descriptions below give an overview.
 

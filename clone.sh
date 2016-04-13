@@ -9,6 +9,8 @@ case $1 in
         repo_url_prefix=https://github.com/GeoscienceAustralia ;;
 esac
 
+cd ..
+
 for m in ${modules[@]}
 do
     git clone ${repo_url_prefix}/${m}

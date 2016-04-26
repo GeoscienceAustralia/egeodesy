@@ -20,6 +20,7 @@
     </scm>
     <modules>
         <module>../igssitelog-java-bindings</module>
+        <module>../GeodesyML</module>
         <module>../ogc-schemas/geodesyml/0.3</module>
         <module>../geodesyml-java-bindings</module>
         <module>../geodesy-domain-model</module>

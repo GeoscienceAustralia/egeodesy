@@ -6,6 +6,6 @@ declare -a modules=(
     "geodesyml-java-bindings"
     "igssitelog-java-bindings"
     "geodesy-domain-model"
-    "geodesy-domain-rest"
+    "geodesy-web-services"
     "xml-schemer"
 );

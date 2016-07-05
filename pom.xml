@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>au.gov.ga.geodesy</groupId>
     <artifactId>egeodesy</artifactId>
@@ -27,7 +27,146 @@
         <module>../geodesy-web-services</module>
         <module>../xml-schemer</module>
     </modules>
+    <properties>
+        <surefire.version>2.19.1</surefire.version>
+        <failsafe.version>2.19.1</failsafe.version>
+        <sonar.host.url>https://sonar.gadevs.ga/</sonar.host.url>
+        <sonar.projectKey>${project.artifactId}</sonar.projectKey>
+        <sonar.projectName>${project.artifactId}</sonar.projectName>
+        <sonar.projectVersion>${project.version}</sonar.projectVersion>
+        <sonar.language>java</sonar.language>
+        <sonar.sources>src/main/java</sonar.sources>
+        <sonar.test>target/test-classes</sonar.test>
+        <sonar.scm.provider>git</sonar.scm.provider>
+        <sonar.login>${SONAR_LOGIN}</sonar.login>
+        <jacoco.basedir>${project.build.directory}/code-coverage</jacoco.basedir>
+        <!-- Define location of Java CodeCoverage data from Unit Tests (run using SureFire) -->
+        <sonar.jacoco.reportPath>${jacoco.basedir}/jacoco-ut.exec</sonar.jacoco.reportPath>
+        <jacoco.ut.outputdir>${jacoco.basedir}/jacoco-ut-out</jacoco.ut.outputdir>
+        <!-- Define location of Java CodeCoverage data from Integration Tests (run using Failsafe) -->
+        <sonar.jacoco.itReportPath>>${jacoco.basedir}/jacoco-itXXXexec</sonar.jacoco.itReportPath>
+        <jacoco.it.outputdir>${jacoco.basedir}/jacoco-it-out</jacoco.it.outputdir>
+        <skip.integration.tests>false</skip.integration.tests>
+        <skip.unit.tests>false</skip.unit.tests>
+        <argLine>-Xmx2048m -Xms1024m</argLine>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.codehaus.sonar-plugins.java</groupId>
+                <artifactId>sonar-jacoco-listeners</artifactId>
+                <version>3.2</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>6.9.4</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <defaultGoal>install</defaultGoal>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>2.7.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.7.7.201606060606</version>
+                    <executions>
+                        <execution>
+                            <id>pre-unit-test</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file to write the execution data to. -->
+                                <destFile>${sonar.jacoco.reportPath}</destFile>
+                                <!-- Connection with SureFire plugin -->
+                                <propertyName>surefireArgLine</propertyName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>post-unit-test</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to where the execution data is located. -->
+                                <dataFile>${sonar.jacoco.reportPath}</dataFile>
+                                <!-- Sets the output directory for the code coverage report. -->
+                                <outputDirectory>${jacoco.ut.outputdir}</outputDirectory>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>pre-integration-test</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>prepare-agent-integration</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file to write the execution data to. -->
+                                <destFile>${sonar.jacoco.itReportPath}</destFile>
+                                <!-- Connection with Failsafe plugin -->
+                                <propertyName>failsafeArgLine</propertyName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>post-integration-test</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>report-integration</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to where the execution data is located. -->
+                                <dataFile>${sonar.jacoco.itReportPath}</dataFile>
+                                <!-- Sets the output directory for the code coverage report. -->
+                                <outputDirectory>${jacoco.it.outputdir}</outputDirectory>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>default-check</id>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                            <configuration>
+                                <haltOnFailure>true</haltOnFailure>
+                                <rules>
+                                    <!--  implementation is needed only for Maven 2  -->
+                                    <rule implementation="org.jacoco.maven.RuleConfiguration">
+                                        <element>BUNDLE</element>
+                                        <limits>
+                                            <!--  implementation is needed only for Maven 2  -->
+                                            <limit implementation="org.jacoco.report.check.Limit">
+                                                <counter>COMPLEXITY</counter>
+                                                <value>COVEREDRATIO</value>
+                                                <minimum>0.60</minimum>
+                                            </limit>
+                                        </limits>
+                                    </rule>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${failsafe.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>

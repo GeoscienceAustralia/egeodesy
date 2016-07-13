@@ -5,6 +5,7 @@ let
     paths = [
       openjdk8
       maven
+      graphviz
     ];
   };
 in

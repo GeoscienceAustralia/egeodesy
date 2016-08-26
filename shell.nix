@@ -24,6 +24,10 @@ let
       openjdk8
       plantuml
       travis
+      python3
+      python
+      pythonPackages.credstash
+      awscli
     ];
   };
 in

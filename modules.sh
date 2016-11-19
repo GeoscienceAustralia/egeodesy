@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-declare -a modules=(
+declare -a MODULES=(
     "egeodesy-parent"
-    "GeodesyML"
+    "geodesyml"
     "ogc-schemas"
     "geodesyml-java-bindings"
     "igssitelog-java-bindings"
@@ -10,3 +10,4 @@ declare -a modules=(
     "geodesy-web-services"
     "xml-schemer"
 );
+export MODULES

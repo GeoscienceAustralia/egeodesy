@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+#shellcheck source=/dev/null
 . ./modules.sh
 
 case $1 in
@@ -11,7 +12,7 @@ esac
 
 cd ..
 
-for m in ${modules[@]}
+for m in "${MODULES[@]}"
 do
-    git clone ${repo_url_prefix}/${m}
+    git clone "${repo_url_prefix}/${m}"
 done

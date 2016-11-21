@@ -46,6 +46,15 @@ GeodesyML documents.
 
 http://github.com/GeoscienceAustralia/geodesyml-java-bindings
 
+#### eGeodesy parent project 
+The parent project is an aggregation of maven modules that work together and generally need to be built together.
+The pom contains shared dependencies and declares modules that can be built and installed 
+in sequence.
+  These are: 
+  geodesey-domain-model  
+  geodesey-web-services
+  (see below)
+
 #### Geodesy Domain Model and Services
 
 GeodesyML binding classes are automatically generated from XML schema files and

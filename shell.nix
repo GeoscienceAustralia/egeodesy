@@ -22,6 +22,7 @@ let
       maven3
       nodejs-6_x
       openjdk8
+      plantuml
       travis
     ];
   };

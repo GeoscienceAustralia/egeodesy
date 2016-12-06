@@ -8,7 +8,19 @@ partners in adopting GeodesyML as a common domain language.
 
 The following dependency diagram and the brief descriptions below give an overview.
 
-![component-overview](https://cloud.githubusercontent.com/assets/5760996/14482081/20ab8864-017c-11e6-94dc-ba0943b7b274.png)
+![Github Project Overview Diagram](http://g.gravizo.com/svg?
+@startuml;
+[GML] <<XML Schema>>;
+[GeodesyML] <<XML Schema>>;
+[GeodesyML] --> GML;
+[OGC Schemas Java Bindings] <<Java Library>> as OGC;
+[OGC] --> GeodesyML;
+[GeodesyML Java Bindings] <<Java Library>> as Bindings;
+[Bindings] --> [OGC];
+[Geodesy Web Services] <<HTTP API>> as Web;
+[Web] --> [Bindings];
+@enduml;
+)
 
 *Note:* All components are in active development.
 
@@ -46,29 +58,20 @@ GeodesyML documents.
 
 http://github.com/GeoscienceAustralia/geodesyml-java-bindings
 
-#### Geodesy Domain Model and Services
+#### Geodesy Web Services
 
 GeodesyML binding classes are automatically generated from XML schema files and
 using them exensively for purposes other than of data serialisation can be
-awkward. Project `geodesy-domain-model` maps the generated GeodesyML entities
+awkward. Project `geodesy-web-services` maps the generated GeodesyML entities
 to a set of domain classes more suited to persistence and data processing.
 It provides a set of domain services relevant to GA's operational requirements,
 like business validation of incoming data, processing of GNSS CORS site logs to
 broker eGeodesy node and setup entities, and broadcasting of significant domain
 events, like availability of final solutions or rejection of invalid site log
-submissions.
-
-http://github.com/GeoscienceAustralia/geodesy-domain-model
-
-#### Geodesy Web Services
-
-Project `geodesy-web-services` is part of the public HTTP-based API for interacting with
-Geodesy domain services offered by Geoscience Australia. First services to
-be published will offer validation, submission, and retrieval of
+submissions. It offers a public HTTP API for validation, submission, and retrieval of
 GeodesyML site log documents.
 
 http://github.com/GeoscienceAustralia/geodesy-web-services
-
 
 ### Contact Information
 

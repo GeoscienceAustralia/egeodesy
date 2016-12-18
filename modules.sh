@@ -7,5 +7,6 @@ declare -a MODULES=(
     "igssitelog-java-bindings"
     "geodesy-web-services"
     "xml-schemer"
+    "gnss-site-manager"
 );
 export MODULES

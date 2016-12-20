@@ -23,6 +23,7 @@ let
       nodejs-6_x
       openjdk8
       plantuml
+      pythonPackages.docker_compose
       travis
     ];
   };

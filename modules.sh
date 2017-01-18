@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -a MODULES=(
-    "GeodesyML"
+    "geodesyml"
     "ogc-schemas"
     "geodesyml-java-bindings"
     "igssitelog-java-bindings"

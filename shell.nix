@@ -17,6 +17,7 @@ let
     name = "devEnv";
     paths = [
       awscli
+      chromium
       doxygen
       graphviz
       maven3
@@ -25,6 +26,7 @@ let
       plantuml
       pythonPackages.docker_compose
       travis
+      xvfb_run
     ];
   };
 in

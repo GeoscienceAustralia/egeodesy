@@ -10,9 +10,10 @@ case $1 in
         repo_url_prefix=https://github.com/GeoscienceAustralia ;;
 esac
 
-cd ..
-
+(cd .. && \
 for m in "${MODULES[@]}"
 do
     git clone "${repo_url_prefix}/${m}"
-done
+done)
+
+(cd ../geodesyml && git checkout ogc-schemas)

@@ -24,6 +24,9 @@ let
       nodejs-6_x
       openjdk8
       plantuml
+      python
+      python3
+      pythonPackages.credstash
       pythonPackages.docker_compose
       travis
       xvfb_run

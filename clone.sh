@@ -15,5 +15,3 @@ for m in "${MODULES[@]}"
 do
     git clone "${repo_url_prefix}/${m}"
 done)
-
-(cd ../geodesyml && git checkout ogc-schemas)

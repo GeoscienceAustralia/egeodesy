@@ -25,6 +25,7 @@ let
       openjdk8
       plantuml
       python2
+      python2Packages.pip
       python3
       pythonPackages.credstash
       pythonPackages.docker_compose

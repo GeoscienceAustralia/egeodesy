@@ -24,7 +24,7 @@ let
       nodejs-6_x
       openjdk8
       plantuml
-      python
+      python2
       python3
       pythonPackages.credstash
       pythonPackages.docker_compose

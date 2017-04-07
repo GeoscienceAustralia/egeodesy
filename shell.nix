@@ -23,6 +23,7 @@ let
       maven3
       nodejs-6_x
       openjdk8
+      packer
       plantuml
       python2
       python2Packages.pip

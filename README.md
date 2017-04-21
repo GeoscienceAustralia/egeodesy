@@ -6,21 +6,25 @@ GitHub project `eGeodesy` groups together several related projects, which
 define GeodesyML and facilitate Geoscience Australia and its collaborating
 partners in adopting GeodesyML as a common domain language.
 
+<!-- TODO: fix this diagram
+
 The following dependency diagram and the brief descriptions below give an overview.
 
 ![Github Project Overview Diagram](http://g.gravizo.com/svg?
 @startuml;
 [GML] <<XML Schema>>;
 [GeodesyML] <<XML Schema>>;
-[GeodesyML] --> GML;
+[GeodesyML] - -> GML;
 [OGC Schemas Java Bindings] <<Java Library>> as OGC;
-[OGC] --> GeodesyML;
+[OGC] - -> GeodesyML;
 [GeodesyML Java Bindings] <<Java Library>> as Bindings;
-[Bindings] --> [OGC];
+[Bindings] - -> [OGC];
 [Geodesy Web Services] <<HTTP API>> as Web;
-[Web] --> [Bindings];
+[Web] - -> [Bindings];
 @enduml;
 )
+
+-->
 
 *Note:* All components are in active development.
 

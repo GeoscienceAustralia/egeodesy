@@ -77,6 +77,12 @@ GeodesyML site log documents.
 
 http://github.com/GeoscienceAustralia/geodesy-web-services
 
+#### GNSS Site Manager
+
+The GNSS site manager is an Angular2/TypeScript web application for managing GNSS site metadata.
+
+http://github.com/GeoscienceAustralia/gnss-site-manager
+
 ### Contact Information
 
 Contributions and bug reports are welcome!

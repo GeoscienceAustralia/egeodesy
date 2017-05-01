@@ -25,8 +25,6 @@ let
       openjdk8
       packer
       plantuml
-      python2
-      python2Packages.pip
       python3
       pythonPackages.credstash
       pythonPackages.docker_compose

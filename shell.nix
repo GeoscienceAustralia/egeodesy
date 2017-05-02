@@ -30,6 +30,7 @@ let
       pythonPackages.docker_compose
       travis
       xvfb_run
+      xorg.xhost
     ];
   };
 in

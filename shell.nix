@@ -40,5 +40,6 @@ in
     ];
     shellHook = ''
       export PATH="$(pwd)/../gnss-site-manager/node_modules/.bin:$PATH"
+      xhost +
     '';
   } ""

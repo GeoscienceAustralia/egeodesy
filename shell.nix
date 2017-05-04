@@ -21,7 +21,7 @@ let
       doxygen
       graphviz
       maven3
-      nodejs-6_x
+      nodejs-7_x
       openjdk8
       packer
       plantuml

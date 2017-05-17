@@ -25,6 +25,7 @@ let
       openjdk8
       packer
       plantuml
+      postgresql
       python3
       pythonPackages.credstash
       pythonPackages.docker_compose

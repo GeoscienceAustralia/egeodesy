@@ -13,5 +13,5 @@ esac
 (cd .. && \
 for m in "${MODULES[@]}"
 do
-    git clone "${repo_url_prefix}/${m}"
+    git clone -b master "${repo_url_prefix}/${m}"
 done)

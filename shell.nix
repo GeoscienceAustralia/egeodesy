@@ -41,6 +41,7 @@ in
     ];
     shellHook = ''
       export PATH="$(pwd)/../gnss-site-manager/node_modules/.bin:$PATH"
+      export CHROME_BIN=$(which chromium)
       xhost +
     '';
   } ""

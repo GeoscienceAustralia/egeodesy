@@ -18,6 +18,7 @@ let
     paths = [
       awscli
       chromium
+      chromedriver
       doxygen
       graphviz
       maven3
@@ -42,6 +43,7 @@ in
     shellHook = ''
       export PATH="$(pwd)/../gnss-site-manager/node_modules/.bin:$PATH"
       export CHROME_BIN=$(which chromium)
+      export CHROMEDRIVER_BIN=$(which chromedriver)
       xhost +
     '';
   } ""

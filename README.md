@@ -6,42 +6,35 @@ GitHub project `eGeodesy` groups together several related projects, which
 define GeodesyML and facilitate Geoscience Australia and its collaborating
 partners in adopting GeodesyML as a common domain language.
 
-<!-- TODO: fix this diagram
+[\\]: <> (The following dependency diagram and the brief descriptions below give an overview.)
 
-The following dependency diagram and the brief descriptions below give an overview.
-
-![Github Project Overview Diagram](http://g.gravizo.com/svg?
-@startuml;
-[GML] <<XML Schema>>;
-[GeodesyML] <<XML Schema>>;
-[GeodesyML] - -> GML;
-[OGC Schemas Java Bindings] <<Java Library>> as OGC;
-[OGC] - -> GeodesyML;
-[GeodesyML Java Bindings] <<Java Library>> as Bindings;
-[Bindings] - -> [OGC];
-[Geodesy Web Services] <<HTTP API>> as Web;
-[Web] - -> [Bindings];
-@enduml;
-)
-
--->
+[\\]: <> (![Github Project Overview Diagram](http://g.gravizo.com/svg?)
+[\\]: <> (@startuml;)
+[\\]: <> ([GML] <<XML Schema>>;)
+[\\]: <> ([GeodesyML] <<XML Schema>>;)
+[\\]: <> ([GeodesyML] - -> GML;)
+[\\]: <> ([OGC Schemas Java Bindings] <<Java Library>> as OGC;)
+[\\]: <> ([OGC] - -> GeodesyML;)
+[\\]: <> ([GeodesyML Java Bindings] <<Java Library>> as Bindings;)
+[\\]: <> ([Bindings] - -> [OGC];)
+[\\]: <> ([Geodesy Web Services] <<HTTP API>> as Web;)
+[\\]: <> ([Web] - -> [Bindings];)
+[\\]: <> (@enduml;)
+[\\]: <> (\))
 
 *Note:* All components are in active development.
 
 #### GeodesyML
 
-GeodesyML is an GML application schema for representation and exchange of
+GeodesyML is a GML application schema for representation and exchange of
 geodetic information. For more information, see http://www.geodesyml.org.
 
-The project contains XML schema files for GeodesyML and all third-party schemas
+This repository contains XML schema files for GeodesyML and all third-party schemas
 that GeodesyML depends on. It contains schematron validation rules to enforce
 conformance to published code lists, like GNSS antenna and receiver types and
-GMD responsible party roles. It also contains bash driver scripts to perform
-validation of GeodesyML documents and report on XML schema and schematron
-violations.
+GMD responsible party roles.
 
-http://github.com/GeoscienceAustralia/geodesyml
-
+http://github.com/GeoscienceAustralia/GeodesyML
 
 #### OGC Schemas for JAXB
 
@@ -50,7 +43,7 @@ schemas defined by OGC. Geoscience Australia's fork of `ogc-schemas` adds
 GeodesyML to the list of supported schemas. We leverage existing bindings for
 OGC schemas GCO, GMD, GMX, and OM, on which GeodesyML is built.
 
-http://github.com/GeoscienceAustralia/ogc-schemas/tree/geodesyml
+http://github.com/GeoscienceAustralia/ogc-schemas
 
 #### GeodesyML Java Bindings
 
@@ -60,7 +53,7 @@ unmarshalling of any entity defined by GeodesyML or the schemas it depends on.
 This project is the first port of call for Java software needing to parse
 GeodesyML documents.
 
-http://github.com/GeoscienceAustralia/geodesyml-java-bindings
+http://github.com/GeoscienceAustralia/GeodesyML-Java-Bindings
 
 #### Geodesy Web Services
 
@@ -75,13 +68,13 @@ events, like availability of final solutions or rejection of invalid site log
 submissions. It offers a public HTTP API for validation, submission, and retrieval of
 GeodesyML site log documents.
 
-http://github.com/GeoscienceAustralia/geodesy-web-services
+http://github.com/GeoscienceAustralia/Geodesy-Web-Services
 
 #### GNSS Site Manager
 
-The GNSS site manager is an Angular2/TypeScript web application for managing GNSS site metadata.
+GNSS Site Manager is an Angular/TypeScript single-page web application for managing GNSS site metadata.
 
-http://github.com/GeoscienceAustralia/gnss-site-manager
+http://github.com/GeoscienceAustralia/GNSS-Site-Manager
 
 ### Contact Information
 
@@ -90,9 +83,3 @@ Contributions and bug reports are welcome!
 Please feel free to contact us through GitHub or at geodesy@ga.gov.au.
 
 -Lazar Bodor (lazar.bodor@ga.gov.au)
-
-
-
-
-
-
